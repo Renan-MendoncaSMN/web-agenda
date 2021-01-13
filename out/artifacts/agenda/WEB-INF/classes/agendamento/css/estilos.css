@@ -1,0 +1,157 @@
+@charset "ISO-8859-1";
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Oswald', sans-serif;
+    background-color: lightgray;
+}
+
+.cabecalho {
+    background: rgb(134, 93, 93);
+    border-bottom: solid 5px lightgoldenrodyellow;
+    height: 80px;
+    box-sizing: content-box;
+}
+
+.logo {
+    display: inline-block;
+    height: 80px;
+    padding: 0px;
+}
+
+.logo img {
+    height: 100%;
+}
+
+.menu-toggle {
+    float: right;
+    color: #eee;
+    background-color: #555;
+    border: solid 1px #777;
+    border-radius: 5px;
+    height: 40px;
+    padding: 10px 20px;
+    margin: 20px 15px;
+}
+
+.menu {
+    display: inline-block;
+    vertical-align: top;
+    height: 80px;
+    padding: 25px;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.cabecalho a {
+    text-decoration: none;
+    color: #eee;
+    font-size: 1.3em;
+}
+
+.menu a {
+    padding: 15px;
+}
+
+.autenticacao {
+    float: right;
+    height: 80px;
+    padding: 25px;
+}
+
+.menu a:hover,
+.menu a.selected {
+    background-color: #4faddb;
+    color: #000;
+}
+
+.botao {
+    border-radius: 30px;
+    padding: 10px 25px;
+    margin: 10px;
+}
+
+.destaque {
+    background: #f50a31;
+    color: #fff;
+}
+
+@media (min-width: 679px) {
+    .menu-toggle {
+        display: none;
+    }
+}
+
+@media (max-width: 910px) {
+    .menu {
+        display: none;
+    }
+}
+
+@media (max-width: 910px) {
+    .autenticacao {
+        display: none;
+    }
+}
+
+.alinhamentoH1 {
+    text-align: center;
+    color: goldenrod;
+}
+
+
+.curso {
+    float: left;
+    vertical-align: top;
+    font-family: Verdana, sans-serif;
+    border: solid 1px #CCC;
+    box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+    height: 300px;
+    width: 260px;
+    margin: 5px 20px;
+    padding: 5px;
+}
+
+.curso img {
+    width: 100%;
+    max-height: 50%;
+}
+
+.curso-info {
+    padding: 10px;
+    height: 90px;
+    overflow: hidden;
+}
+
+.curso-info h4 {
+    font-size: 1.4em;
+    font-weight: 100;
+    margin: 0px;
+}
+
+.pastel-preco {
+    float: right;
+    padding: 10px;
+}
+
+.preco-de {
+    text-decoration: line-through;
+    color: firebrick;
+}
+
+.preco-por {
+    color: goldenrod;
+    font-weight: bold;
+    font-size: 1.4em;
+}
