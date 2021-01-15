@@ -1,4 +1,4 @@
-<%@page import="entidades.ControleAgendamento"%>
+<%@page import="controle.ControleAgendamento"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
 <%@page import="entidades.Agendamento" %>
@@ -72,7 +72,7 @@ var urlAgendamento = '${pageContext.request.contextPath}/agendamento';
     
     function buscarLista(){
         $.get(urlAgendamento,{
-            cmd: '<%=ControleAgendamento.metodos.list.toString()%>',
+            cmd: '<%=ControleAgendamento.methods.list.toString()%>',
         }).success(function(data) {
             $('#div-acesso-agendamentos .body').html(data);
             atualizarNumeroPendencias();
@@ -86,7 +86,7 @@ var urlAgendamento = '${pageContext.request.contextPath}/agendamento';
     
     function buscarTodosAgendamentos(success){
         $.get(urlAgendamento,{
-            cmd: '<%=ControleAgendamento.metodos.listAll.toString()%>',
+            cmd: '<%=ControleAgendamento.methods.listAll.toString()%>',
             pagina: 1
         }).success(function(data) {
             success(data);

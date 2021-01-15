@@ -1,4 +1,4 @@
-<%@page import="entidades.ControleAgendamento"%>
+<%@page import="controle.ControleAgendamento"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html>
@@ -72,7 +72,7 @@
     
     function atualizarNumeroPendencias(){
         $.get(urlAgendamento,{
-            cmd: "<%=ControleAgendamento.metodos.icon.toString()%>",
+            cmd: "<%=ControleAgendamento.methods.icon.toString()%>",
         }).success(function(data) {
             $('#span-numero-pendencias').html(jQuery(data).find('#span-numero-pendencias').html());
         }).fail(function(xhr) {

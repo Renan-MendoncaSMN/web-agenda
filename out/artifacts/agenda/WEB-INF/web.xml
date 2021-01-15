@@ -14,7 +14,7 @@
 
     <servlet>
         <servlet-name>Agendamento</servlet-name>
-        <servlet-class>entidades.ControleAgendamento</servlet-class>
+        <servlet-class>controle.ControleAgendamento</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Agendamento</servlet-name>

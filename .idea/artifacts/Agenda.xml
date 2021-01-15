@@ -8,6 +8,7 @@
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="j2ee" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../../Program Files/Microsoft JDBC DRIVER 8.4 para SQL Server/sqljdbc_8.4/ptb/mssql-jdbc-8.4.1.jre8.jar" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="Agenda/web/Web" />

@@ -14,7 +14,7 @@ public class Agendamento {
     private Date dataAlteracao;
     private Boolean emailNotificacao;
     private String urlRedirecionamento;
-    private Integer idUsuario;
+    private Integer idUsuario = 147;
     private byte idStatus;
 
 

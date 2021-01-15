@@ -1,4 +1,4 @@
-<%@page import="entidades.ControleAgendamento"%>
+<%@page import="controle.ControleAgendamento"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
@@ -59,12 +59,25 @@
 	<script>	
 var urlAgendamento = '${pageContext.request.contextPath}/agendamento';
 
+
+
+
 function cadastrarAgendamento(){
 	
 		
     	var assunto = $('#inTitulo').val();
         var descricao = $('#inDescricao').val();
-        var data =  $('#inData').val();
+        var data = $('#inData').val();
+
+	function formatdata(data){
+		var data = new Date(),
+				dia  = data.getDate().toString(),
+				diaF = (dia.length == 1) ? '0'+dia : dia,
+				mes  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+				mesF = (mes.length == 1) ? '0'+mes : mes,
+				anoF = data.getFullYear();
+		return anoF+'/'+mesF+'/'+diaF;
+	}
 
 
   if(!assunto || !descricao || !data)
@@ -74,10 +87,10 @@ function cadastrarAgendamento(){
             });
 
         $.post(urlAgendamento, {
-            cmd: '<%=ControleAgendamento.metodos.post.toString()%>',
+            cmd: '<%=ControleAgendamento.methods.post.toString()%>',
 								assunto : assunto,
 								descricao : descricao,
-								dataAgendamento : data,
+								dataAgendamento : formatdata(data),
 								email : $('#inNotificacao').prop('checked') ? 1
 										: null,
 								urlRedirecionamento : $('#inUrl').prop(
