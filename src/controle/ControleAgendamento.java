@@ -5,6 +5,7 @@ import app.Log;
 import entidades.Agendamento;
 import entidades.RepositorioAgendamento;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -90,9 +91,10 @@ public class ControleAgendamento extends HttpServlet {
     protected void buscarAgendamentosPendentes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, ParseException, ClassNotFoundException {
 
         List<Agendamento> agendamentos = _agendamentoRepository.buscarAgendamentosPendentes(147);
-
         request.setAttribute("agendamentos", agendamentos);
-        request.getRequestDispatcher("agendamento/list.jsp").forward(request, response);
+
+       RequestDispatcher rd = request.getRequestDispatcher("agendamento/index.jsp");
+       rd.forward(request, response);
     }
 
     protected void buscarQuantidadeAgendamentosPendentes(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException, ClassNotFoundException {
@@ -100,7 +102,7 @@ public class ControleAgendamento extends HttpServlet {
         int quantidadeAgendamentos = _agendamentoRepository.buscarQuantidadeAgendamentosPendentes(147);
 
         request.setAttribute("quantidadeAgendamentos", quantidadeAgendamentos);
-        request.getRequestDispatcher("agendamento/index.jsp").forward(request, response);
+        request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     protected void buscarFormularioCadastro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

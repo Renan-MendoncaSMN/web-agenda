@@ -15,7 +15,7 @@ public class Conexao {
     public Conexao (){
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            String connectionUrl = "jdbc:sqlserver://localhost;databaseName=tempdb;user=sa;password=123;";
+            String connectionUrl = "jdbc:sqlserver://localhost;databaseName=master;user=sa;password=123;";
             connection = DriverManager.getConnection(connectionUrl);
 
         } catch (SQLException | ClassNotFoundException e) {

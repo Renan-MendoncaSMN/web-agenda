@@ -4,7 +4,7 @@ GO
 CREATE PROCEDURE [dbo].[SP_CadastrarAgendamento] 
 	@Assunto VARCHAR (50),
 	@Descricao VARCHAR (200),
-	@DataAgendamento DATETIME,
+	@DataAgendamento DATE,
 	@IdUsuario INT,
 	@EmailNotificacao BIT,
 	@UrlRedirecionamento VARCHAR(200) 
@@ -14,7 +14,7 @@ CREATE PROCEDURE [dbo].[SP_CadastrarAgendamento]
 	Documentação
 	Módulo............: Agendamento
 	Objetivo..........: Procedure para cadastrar um novo agendamento
-	EX................: EXEC [dbo].[SP_CadastrarAgendamento] 'Atualizar os dados do Sacado', 'Atualizar o dados do 000817 - DROGA LESTE LTDA EPP','2021-15-01 12:00', 147, 1, null;
+	EX................: EXEC [dbo].[SP_CadastrarAgendamento] 'Atualizar os dados do Sacado', 'Atualizar o dados do 000817 - DROGA LESTE LTDA EPP','01/01/2020', 147, 1, null;
 	*/
 	BEGIN
 

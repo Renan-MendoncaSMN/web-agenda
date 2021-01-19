@@ -10,8 +10,7 @@
 <link rel="stylesheet" href="css/iziToast.min.css">
 <script src="css/iziToast.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="css/form.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <title>agendamento</title>
 </head>
 

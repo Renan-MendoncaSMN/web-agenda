@@ -27,11 +27,10 @@ public class RepositorioAgendamento  {
         stmt = con.prepareCall("{call SP_BuscarQuantidadeAgendamentosPendentes(?)}");
 
         stmt.setInt(1, idUsuario);
-        rs = stmt.getResultSet();
+        rs = stmt.executeQuery();
 
         if (rs.next())
-            return rs.getInt("QuantidadeAgendamentos");
-        conexao.closeConexao();
+            return rs.getInt("quantidadeAgendamentos");
         return 0;
     }
 
@@ -82,7 +81,7 @@ public class RepositorioAgendamento  {
 
         stmt.setInt(1, idUsuario);
 
-        rs = stmt.getResultSet();
+        rs = stmt.executeQuery();
 
         List<Agendamento> agendamentos = new ArrayList<Agendamento>();
         while (rs.next())
@@ -90,15 +89,14 @@ public class RepositorioAgendamento  {
                     rs.getInt("IdAgendamento"),
                     rs.getString("Assunto"),
                     rs.getString("Descricao"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(rs.getString("DataAgendamento")),
+                    new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString("DataAgendamento")),
                     rs.getDate("DataCadastro"),
                     rs.getDate("DataAlteracao"),
-                    rs.getBoolean("EmailNotificao"),
+                    rs.getBoolean("EmailNotificacao"),
                     rs.getString("UrlRedirecionamento"),
                     rs.getInt("IdUsuario"),
                     rs.getByte("IdStatus")
             ));
-        conexao.closeConexao();
         return agendamentos;
     }
 
