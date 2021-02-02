@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class Log {
 
-    private static String caminhoLog = "C:\temp";
+    private static String caminhoLog = "C:\\temp";
 
     public static void write(String message) {
         try

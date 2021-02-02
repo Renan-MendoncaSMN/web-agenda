@@ -7,7 +7,7 @@
 body {
     margin: 0;
     font-family: 'Oswald', sans-serif;
-    background-color: lightgray;
+    background-color: #fff;
 }
 
 .cabecalho {
@@ -29,8 +29,8 @@ body {
 
 .menu-toggle {
     float: right;
-    color: #eee;
-    background-color: #555;
+    color: #fcfafa;
+    background-color: #555555;
     border: solid 1px #777;
     border-radius: 5px;
     height: 40px;
@@ -56,7 +56,7 @@ body {
 
 .cabecalho a {
     text-decoration: none;
-    color: #eee;
+    color: #eeeeee;
     font-size: 1.3em;
 }
 
@@ -72,8 +72,10 @@ body {
 
 .menu a:hover,
 .menu a.selected {
-    background-color: #4faddb;
-    color: #000;
+    cursor: pointer;
+    transform: translateY(-5px);
+    box-shadow: 4px 30px 16px 0px rgba(50, 50, 50, 0.45);
+    border-radius: 50%;
 }
 
  .botao {
@@ -108,7 +110,9 @@ body {
 .alinhamentoH1 {
     text-align: center;
     color: goldenrod;
+
 }
+
 
 
 .curso {
@@ -155,3 +159,6 @@ body {
     font-weight: bold;
     font-size: 1.4em;
 }
+
+
+

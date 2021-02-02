@@ -54,16 +54,16 @@ public class Agendamento {
                 descricao = status.Pendente.toString();
                 break;
             case 2:
-                descricao = status.Futura.toString();
+                descricao = status.Cancelada.toString();
                 break;
             case 3:
-                descricao = status.Atrasada.toString();
-                break;
-            case 4:
                 descricao = status.Resolvida.toString();
                 break;
+            case 4:
+                descricao = status.Futura.toString();
+                break;
             case 5:
-                descricao = status.Cancelada.toString();
+                descricao = status.Atrasada.toString();
                 break;
         }
 
@@ -143,14 +143,14 @@ public class Agendamento {
     }
 
     public byte getIdStatus() throws ParseException {
-        SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+        SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
         Date hoje = formatar.parse(formatar.format(new Date()));
 
         if (idStatus == 1 && hoje.after(getDataAgendamento())) {
-            return 3;
+            return 5;
         }
         if (idStatus == 1 && getDataAgendamento().after(hoje)) {
-            return 2;
+            return 4;
         }
 
         return idStatus;

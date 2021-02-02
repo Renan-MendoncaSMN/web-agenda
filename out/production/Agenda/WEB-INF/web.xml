@@ -13,11 +13,58 @@
     </welcome-file-list>
 
     <servlet>
-        <servlet-name>Agendamento</servlet-name>
-        <servlet-class>controle.ControleAgendamento</servlet-class>
+        <servlet-name>agendamentoForm</servlet-name>
+        <servlet-class>controle.FormularioServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Agendamento</servlet-name>
-        <url-pattern>/agendamento</url-pattern>
+        <servlet-name>agendamentoForm</servlet-name>
+        <url-pattern>/agendamentoForm</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>agendamentoIcon</servlet-name>
+        <servlet-class>controle.IconServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>agendamentoIcon</servlet-name>
+        <url-pattern>/agendamentoIcon</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>agendamentoListAll</servlet-name>
+        <servlet-class>controle.ListaTodosServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>agendamentoListAll</servlet-name>
+        <url-pattern>/agendamentoListAll</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>agendamentoList</servlet-name>
+        <servlet-class>controle.ListaServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>agendamentoList</servlet-name>
+        <url-pattern>/agendamentoList</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>agendamentoStatus</servlet-name>
+        <servlet-class>controle.StatusServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>agendamentoStatus</servlet-name>
+        <url-pattern>/agendamentoStatus</url-pattern>
+    </servlet-mapping>
+<!--
+    <jsp-config>
+            <jsp-property-group>
+                <description>Header and footer settings</description>
+                <url-pattern>index.jsp</url-pattern>
+                <url-pattern>../web/agendamento/*</url-pattern>
+                <include-prelude>../web/agendamento/navbar/index.jsp</include-prelude>
+                <include-coda>../web/agendamento/footer/index.jsp</include-coda>
+            </jsp-property-group>
+    </jsp-config>-->
+
 </web-app>

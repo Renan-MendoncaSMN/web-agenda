@@ -43,18 +43,16 @@ public class RepositorioAgendamento  {
         stmt.setInt(2, idStatus);
 
         stmt.execute();
-        conexao.closeConexao();
     }
 
-    public List<Agendamento> buscarAgendamentos(Integer idUsuario, byte pagina) throws SQLException, ParseException, ClassNotFoundException {
+    public List<Agendamento> buscarAgendamentos(Integer idUsuario) throws SQLException, ParseException, ClassNotFoundException {
 
         con = conexao.getConnection();
-        stmt = con.prepareCall("{call SP_BuscarAgendamentos(?, ?)}");
+        stmt = con.prepareCall("{call SP_BuscarAgendamentos(?)}");
 
         stmt.setInt(1, idUsuario);
-        stmt.setInt(2, pagina);
 
-        rs = stmt.getResultSet();
+        rs = stmt.executeQuery();
 
         List<Agendamento> agendamentos = new ArrayList<Agendamento>();
         while (rs.next())
@@ -62,7 +60,7 @@ public class RepositorioAgendamento  {
                     rs.getInt("IdAgendamento"),
                     rs.getString("Assunto"),
                     rs.getString("Descricao"),
-                    new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(rs.getString("DataAgendamento")),
+                    new SimpleDateFormat("yyyy-MM-dd").parse(rs.getString("DataAgendamento")),
                     rs.getDate("DataCadastro"),
                     rs.getDate("DataAlteracao"),
                     rs.getBoolean("EmailNotificacao"),
@@ -70,7 +68,6 @@ public class RepositorioAgendamento  {
                     rs.getInt("IdUsuario"),
                     rs.getByte("IdStatus")
             ));
-        conexao.closeConexao();
         return agendamentos;
     }
 
@@ -114,6 +111,5 @@ public class RepositorioAgendamento  {
             stmt.setString(6, agendamento.getUrlRedirecionamento());
         }
         stmt.execute();
-        stmt.close();
     }
 }
