@@ -38,12 +38,12 @@
                     <th>Status:</td>
                     <th colspan="3">
                         <select id="filtroStatus" class="form-select form-select-lg" aria-label=".form-select-lg example">
-                        <option selected>Filtro</option>
-                            <option class="" value="<%=Agendamento.status.Pendente.toString()%>"><%=Agendamento.status.Pendente.toString()%></option>
-                            <option class="" value="<%=Agendamento.status.Cancelada.toString()%>"><%=Agendamento.status.Cancelada.toString()%></option>
-                            <option class="" value="<%=Agendamento.status.Resolvida.toString()%>"><%=Agendamento.status.Resolvida.toString()%></option>
-                            <option class="" value="<%=Agendamento.status.Atrasada.toString()%>"><%=Agendamento.status.Atrasada.toString()%></option>
-                            <option class="" value="<%=Agendamento.status.Futura.toString()%>"><%=Agendamento.status.Futura.toString()%></option>
+                        <option selected>Todas</option>
+                            <option class="pendente" title="<%=Agendamento.status.Pendente.toString()%>"><%=Agendamento.status.Pendente.toString()%></option>
+                            <option class="cancelado" title="<%=Agendamento.status.Cancelada.toString()%>"><%=Agendamento.status.Cancelada.toString()%></option>
+                            <option class="resolvido" title="<%=Agendamento.status.Resolvida.toString()%>"><%=Agendamento.status.Resolvida.toString()%></option>
+                            <option class="atrasada" title="<%=Agendamento.status.Atrasada.toString()%>"><%=Agendamento.status.Atrasada.toString()%></option>
+                            <option class="futura" title="<%=Agendamento.status.Futura.toString()%>"><%=Agendamento.status.Futura.toString()%></option>
                         </select>
                     </th>
                 </tr>
@@ -56,20 +56,20 @@
                     ArrayList<Agendamento> agendamentos = (ArrayList<Agendamento>)parametro ;
                     for(Agendamento agenda : agendamentos) {
             %>
-                        <tr>
+                        <tr class="<%=agenda.getDescricaoStatus()%>">
                             <td><%=agenda.getAssunto()%></td>
                             <td><%=agenda.getDescricao()%></td>
                             <td><%=new java.text.SimpleDateFormat("dd/MM/yyyy").format(agenda.getDataAgendamento())%></td>
                             <% if (agenda.getIdStatus()  == 1 ) { %>
-                            <td><%=agenda.getDescricaoStatus()%></td>
+                            <td class="pendente" title="<%=Agendamento.status.Pendente.toString()%>" ><%=agenda.getDescricaoStatus()%></td>
                             <% } else if (agenda.getIdStatus()  == 2 ) { %>
-                            <td><%=agenda.getDescricaoStatus()%></td>
+                            <td class="cancelado" title="<%=Agendamento.status.Cancelada.toString()%>"><%=agenda.getDescricaoStatus()%></td>
                             <% } else if (agenda.getIdStatus()  == 3 ) { %>
-                            <td><%=agenda.getDescricaoStatus()%></td>
+                            <td class="resolvido" title="<%=Agendamento.status.Resolvida.toString()%>"><%=agenda.getDescricaoStatus()%></td>
                             <% } else if (agenda.getIdStatus()  == 4 ) { %>
-                            <td><%=agenda.getDescricaoStatus()%></td>
+                            <td class="futura" title="<%=Agendamento.status.Futura.toString()%>"><%=agenda.getDescricaoStatus()%></td>
                             <% } else if (agenda.getIdStatus()  == 5 ) { %>
-                            <td><%=agenda.getDescricaoStatus()%></td>
+                            <td class="atrasada" title="<%=Agendamento.status.Atrasada.toString()%>"><%=agenda.getDescricaoStatus()%></td>
                             <%}%>
                             <td><button style="background-color: green; color: aliceblue;" onclick="resolverTarefa(<%=agenda.getIdAgendamento()%>, 3)">&#10003;</button></td>
                             <td><button style="background-color: red; color: aliceblue;" onclick="cancelarTarefa(<%=agenda.getIdAgendamento()%>, 2)">&#10005;</button></td>
@@ -101,6 +101,8 @@
     var urlStatus = '${pageContext.request.contextPath}/agendamentoStatus';
 
     function resolverTarefa(idAgendamento, idStatus){
+        let result = confirm("Deseja marcar como resolvida?");
+        if(result)
         $.post(urlStatus,{
             idAgendamento: idAgendamento,
             idStatus: idStatus,
@@ -115,6 +117,8 @@
     }
 
     function cancelarTarefa(idAgendamento, idStatus){
+        let result = confirm("Deseja mesmo cancelar?");
+        if(result)
         $.post(urlStatus,{
             idAgendamento: idAgendamento,
             idStatus: idStatus,
@@ -129,65 +133,18 @@
     }
 
     $(document).ready(function (){
-        $('#filtroStatus').change(function (){
-            var filtroId = $('#filtroStatus option:selected').val();
-            $.get(urlAgendamento, {
-            }).done( function (data){
-                $('#corpo-tabela').html($(data).find('#corpo-tabela').html());
-            })
-        })
-    })
+        $('#filtroStatus').on("change", function (){
+            var select = $(this).find('option:selected').html();
+            var trs = $("#corpo-tabela tr");
+            $(trs).show();
+            $(trs).not('.' + select).hide();
 
+            if(select == 'Todas'){
+                $(trs).show();
+            }
+        });
+    });
 
-   /* function filtroStatus() {
-        $.get(urlAgendamento, {
-        }).done(function (data){
-                filter(status => status.idStatus == filtro);
-               console.log(data)
-        }).fail(function (){
-            iziToast.error({
-                title: 'Error',
-                message: 'Erro ao tentar atualizar a lista de agendamentos',
-            });
-        })
-        $(document).on('change', '#filtroStatus', function (){
-            var filtro = $(this).val();
-            console.log(filtro);
-        })
-    }
-*/
-
-
-/*
-    $(document).ready(function (){
-        carregaStatus('filtroStatus');
-        function carregaStatus(id, filtro) {
-
-            $.get(urlAgendamento, function (data){
-                $('#corpo-tabela').html($(data).find('#corpo-tabela').html());
-                console.log(data);
-                if(id == 'filtroStatus'){
-                    for(var i = 0; i < data.idStatus.length; i++){
-                        $('#corpo-tabela').html($(data).find('#corpo-tabela').html());
-                    }
-                }else{
-                    for(var i = 0; i < data.idStatus.length; i++){
-                        if(data.idStatus[i] == filtro ){
-                            for(var y = 0; y <data.idStatus[i].length; y++){
-                                $('#corpo-tabela').html($(data).find('#corpo-tabela').html());
-                            }
-                        }
-                    }
-                }
-                $('#' + id).html()
-            })
-        }
-
-    $(document).on('change', '#filtroStatus', function (){
-        var filtro = $(this).val();
-        console.log(filtro);
-    })
-    })*/
 </script>
 </body>
 </html>

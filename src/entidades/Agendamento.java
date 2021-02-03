@@ -143,7 +143,7 @@ public class Agendamento {
     }
 
     public byte getIdStatus() throws ParseException {
-        SimpleDateFormat formatar = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatar = new SimpleDateFormat("yyyy/MM/dd");
         Date hoje = formatar.parse(formatar.format(new Date()));
 
         if (idStatus == 1 && hoje.after(getDataAgendamento())) {

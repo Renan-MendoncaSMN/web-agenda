@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
          pageEncoding="ISO-8859-1" %>
 
-<html>
+<html lan="pt-br">
     <title>Home</title>
     <jsp:include page="agendamento/header.jsp" />
 <style>
@@ -93,10 +93,87 @@
                 <span class="preco-por">R$7,00</span>
             </div>
         </div>
+        <div class="curso">
+            <img src="agendamento/img/pastel-de-pizza.jpg"/>
+            <div class="curso-info">
+                <h4>Pastel de Pizza</h4>
+            </div>
+            <div class="curso-preco">
+                <span class="preco-de">R$10,00</span>
+                <span class="preco-por">R$7,00</span>
+            </div>
+        </div>
+        <div class="curso">
+            <img src="agendamento/img/pastel-belem.jpg"/>
+            <div class="curso-info">
+                <h4>Pastel de Belem</h4>
+            </div>
+            <div class="curso-preco">
+                <span class="preco-de">R$10,00</span>
+                <span class="preco-por">R$7,00</span>
+            </div>
+        </div>
+        <div class="curso">
+            <img src="agendamento/img/receitas-de-pastel-de-chocolate-0.jpg"/>
+            <div class="curso-info">
+                <h4>Pastel Sensação</h4>
+            </div>
+            <div class="curso-preco">
+                <span class="preco-de">R$13,00</span>
+                <span class="preco-por">R$9,00</span>
+            </div>
+        </div>
+        <div class="curso">
+            <img src="agendamento/img/pastel-charque.jpg"/>
+            <div class="curso-info">
+                <h4>Pastel de Charque</h4>
+            </div>
+            <div class="curso-preco">
+                <span class="preco-de">R$15,00</span>
+                <span class="preco-por">R$10,00</span>
+            </div>
+        </div>
+        <div class="curso">
+            <img src="agendamento/img/country-frango-bacon.jpg"/>
+            <div class="curso-info">
+                <h4>Pastel Franbacon</h4>
+            </div>
+            <div class="curso-preco">
+                <span class="preco-de">R$15,00</span>
+                <span class="preco-por">R$10,00</span>
+            </div>
+        </div>
+        <div class="curso">
+            <img src="agendamento/img/pastel-de-carne-seca.jpg"/>
+            <div class="curso-info">
+                <h4>Pastel de Carne de Sol</h4>
+            </div>
+            <div class="curso-preco">
+                <span class="preco-de">R$15,00</span>
+                <span class="preco-por">R$10,00</span>
+            </div>
+        </div>
+        <div class="curso">
+            <img src="agendamento/img/receitas-de-pastel-de-palmito-00-1200x738.jpg"/>
+            <div class="curso-info">
+                <h4>Pastel de Palmito</h4>
+            </div>
+            <div class="curso-preco">
+                <span class="preco-de">R$15,00</span>
+                <span class="preco-por">R$10,00</span>
+            </div>
+        </div>
+        <div class="curso">
+            <img src="agendamento/img/pastel-de-camarao-10-pasteis-768x307-c5f12cc0.jpg"/>
+            <div class="curso-info">
+                <h4>Pastel de Camarão</h4>
+            </div>
+            <div class="curso-preco">
+                <span class="preco-de">R$18,00</span>
+                <span class="preco-por">R$15,00</span>
+            </div>
+        </div>
     </div>
-</div>
-<div>
-    <jsp:include page="agendamento/footer/index.jsp" />
 </div>
 <script>
     var urlAgendamento = '${pageContext.request.contextPath}/agendamentoIcon';
@@ -119,7 +196,7 @@
         $.get(urlAgendamento,{
         }).done(function(data) {
             $('#span-numero-pendencias').html($(data).find('#span-numero-pendencias').html());
-        }).fail(function(xhr) {
+        }).fail(function() {
             iziToast.error({
                 title: 'Error',
                 message: 'Erro ao atualizar o número das pendencias',

@@ -102,6 +102,8 @@
     var urlStatus = '${pageContext.request.contextPath}/agendamentoStatus';
 
     function resolverTarefa(idAgendamento, idStatus){
+        let result = confirm("Deseja marcar como resolvida?");
+        if(result)
         $.post(urlStatus,{
             idAgendamento: idAgendamento,
             idStatus: idStatus,
@@ -116,6 +118,8 @@
     }
 
     function cancelarTarefa(idAgendamento, idStatus){
+        let result = confirm("Deseja mesmo cancelar?");
+        if(result)
         $.post(urlStatus,{
             idAgendamento: idAgendamento,
             idStatus: idStatus,

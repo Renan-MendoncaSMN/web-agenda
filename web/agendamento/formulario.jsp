@@ -5,7 +5,6 @@
 <html lang="pt-br">
 <title>Cadastro</title>
 <jsp:include page="headerForm.jsp" />
-
 <style>
 	.titulo-form{
 		margin-top: 60px;
@@ -42,7 +41,6 @@
 		text-align: right;
 	}
 </style>
-
 <body>
 		<div>
 			<jsp:include page="navbar/indexForm.jsp" />
@@ -88,8 +86,8 @@
 				var data = $('#inData').val();
 
 			function formatdata(data){
-				var data = new Date(),
-						dia  = data.getDate().toString(),
+				var data = new Date(data),
+						dia  = (data.getDate()+1).toString(),
 						diaF = (dia.length == 1) ? '0'+dia : dia,
 						mes  = (data.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
 						mesF = (mes.length == 1) ? '0'+mes : mes,
@@ -105,14 +103,11 @@
 
 				$.post(urlAgendamento, {
 					cmd: 'POST',
-					assunto : assunto,
-					descricao : descricao,
-					dataAgendamento : formatdata(data),
-					email : $('#inNotificacao').prop('checked') ? 1
-							: null,
-					urlRedirecionamento : $('#inUrl').prop(
-							'checked') ? window.location.href
-							: null
+					assunto: assunto,
+					descricao: descricao,
+					dataAgendamento: formatdata(data),
+					email: $('#inNotificacao').prop('checked') ? true : false,
+					urlRedirecionamento: $('#inUrl').prop('checked') ? window.location.href : null
 				}).done(function() {
 					iziToast.show({
 						title : 'Sucesso',

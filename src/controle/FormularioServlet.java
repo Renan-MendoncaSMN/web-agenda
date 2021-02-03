@@ -42,7 +42,7 @@ public class FormularioServlet extends HttpServlet {
                 agendamento = new Agendamento(
                         assunto,
                         descricao,
-                        new SimpleDateFormat("dd/MM/yyyy").parse(dataAgendamento),
+                        new SimpleDateFormat("yyyy/MM/dd").parse(dataAgendamento),
                         Boolean.getBoolean(emailNotificacao),
                         urlRedirecionamento);
 
