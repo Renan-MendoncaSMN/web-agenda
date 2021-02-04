@@ -20,4 +20,5 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="agendamento/navbar/style.css">
     <link rel="stylesheet" href="agendamento/footer/style.css">
+    <link rel="stylesheet" href="agendamento/css/login.css">
 </head>

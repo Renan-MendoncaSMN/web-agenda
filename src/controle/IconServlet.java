@@ -1,6 +1,6 @@
 package controle;
 
-import entidades.RepositorioAgendamento;
+import Repositorio.RepositorioAgendamento;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +13,7 @@ public class IconServlet extends HttpServlet {
 
     private final RepositorioAgendamento _agendamentoRepository;
 
-    public IconServlet() throws SQLException, ClassNotFoundException {
+    public IconServlet(){
         super();
         _agendamentoRepository = new RepositorioAgendamento();
     }
@@ -25,8 +25,6 @@ public class IconServlet extends HttpServlet {
             quantidadeAgendamentos = _agendamentoRepository.buscarQuantidadeAgendamentosPendentes(147);
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
 
         request.setAttribute("quantidadeAgendamentos", quantidadeAgendamentos);

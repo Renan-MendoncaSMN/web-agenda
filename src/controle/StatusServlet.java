@@ -1,6 +1,6 @@
 package controle;
 
-import entidades.RepositorioAgendamento;
+import Repositorio.RepositorioAgendamento;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

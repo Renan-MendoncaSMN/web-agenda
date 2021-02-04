@@ -113,12 +113,10 @@ body {
 
 }
 
-
-
 .curso {
     float: left;
     vertical-align: top;
-    font-family: Verdana, sans-serif;
+    font-family: 'Oswald', sans-serif;
     border: solid 1px #CCC;
     box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
     height: 300px;
@@ -142,6 +140,7 @@ body {
     font-size: 1.4em;
     font-weight: 100;
     margin: 0px;
+    color: goldenrod;
 }
 
 .pastel-preco {

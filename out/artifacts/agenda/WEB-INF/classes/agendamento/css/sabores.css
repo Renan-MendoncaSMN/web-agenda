@@ -1,0 +1,83 @@
+
+.modal {
+    width: 1000px;
+    height: 500px;
+    border: rgba(134, 93, 93, 0);
+    border-radius: 80px 0px 80px 0px;
+    color: #fff;
+    background-color: rgba(134, 93, 93, 0.8);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 68px 28px;
+}
+
+.modal span {
+    float: right;
+    font-size: 50px;
+    color: black;
+    margin: 8px 15px;
+    transition: 0.2s;
+    cursor: pointer;
+    position: relative;
+    margin-top:-60px;
+}
+
+.modal span:hover {
+    color: #fff;
+    top:0;
+    transition: 0.2s;
+    background-color: #990000;
+    border-radius: 10px;
+}
+
+.modal h1 {
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 0;
+    padding-bottom: 20px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 25px;
+}
+
+.modal h1:hover {
+    color:goldenrod;
+    transition: 0.2s;
+}
+
+.table-sabores {
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding-top: 20px;
+    padding-left: 0;
+    padding-bottom: 20px;
+    width: 100%;
+    left: 50%;
+    color: #fff;
+
+}
+
+.table-sabores:hover {
+    color:goldenrod;
+    transition: 0.2s;
+}
+
+.table-sabores th {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 5px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-weight: bold;
+
+}
+
+.table-sabores td {
+    padding: 8px;
+    text-align: center;
+}
+

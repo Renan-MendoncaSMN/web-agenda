@@ -1,7 +1,7 @@
 package controle;
 
 import entidades.Agendamento;
-import entidades.RepositorioAgendamento;
+import Repositorio.RepositorioAgendamento;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

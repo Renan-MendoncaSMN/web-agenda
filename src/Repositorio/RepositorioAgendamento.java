@@ -1,6 +1,7 @@
-package entidades;
+package Repositorio;
 
 import db.Conexao;
+import entidades.Agendamento;
 
 
 import javax.swing.*;
@@ -18,11 +19,11 @@ public class RepositorioAgendamento  {
     Conexao conexao = new Conexao();
     ResultSet rs;
     
-    public RepositorioAgendamento() throws SQLException, ClassNotFoundException {
+    public RepositorioAgendamento() {
         super();
     }
 
-    public int buscarQuantidadeAgendamentosPendentes(Integer idUsuario) throws SQLException, ClassNotFoundException {
+    public int buscarQuantidadeAgendamentosPendentes(Integer idUsuario) throws SQLException {
         con = conexao.getConnection();
         stmt = con.prepareCall("{call SP_BuscarQuantidadeAgendamentosPendentes(?)}");
 

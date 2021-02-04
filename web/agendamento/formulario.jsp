@@ -74,7 +74,7 @@
 		</form>
 		<div class="button-cadastro">
 			<button type="button" id="button-gravar" class="btn btn-success" onclick="cadastrarAgendamento()">Confirmar &#9673;</button>
-			<a href="javascript: history.go(-1)" type="button" class="btn btn-danger" id="btRetirar">Cancelar &#10007;</a>
+			<a href="javascript: history.go(-1)" type="button" class="btn btn-danger" id="btRetirar">Voltar &#10007;</a>
 		</div>
 	<script>
 		var urlAgendamento = '${pageContext.request.contextPath}/agendamentoForm';

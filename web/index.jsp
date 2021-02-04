@@ -8,7 +8,7 @@
     #span-numero-pendencias {
         position: absolute;
         right: 58px;
-        top: 50p
+        top: 50px;
         background: #F44336;
         color: white;
         border-radius: 50%;
