@@ -1,4 +1,14 @@
 
+
+.login-body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url(../img/login.jpg);
+    background-size: cover;
+    font-family:'Oswald', sans-serif;
+
+}
+
 .modal {
     width: 1000px;
     height: 500px;

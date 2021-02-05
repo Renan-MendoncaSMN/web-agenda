@@ -30,4 +30,24 @@ public class RepositorioUsuario {
         status = rs.next();
         return status;
     }
+
+    public boolean insertUser(Usuario usuario) throws SQLException {
+        try {
+            con = conexao.getConnection();
+
+            PreparedStatement preparedStatement = con.prepareStatement("INSERT INTO Usuario (Nome, Email, Senha) VALUES (?,?,?)");
+            preparedStatement.setString(1, usuario.getNome());
+            preparedStatement.setString(2, usuario.getEmail());
+            preparedStatement.setString(3, usuario.getSenha());
+
+            preparedStatement.executeUpdate();
+            return true;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
 }

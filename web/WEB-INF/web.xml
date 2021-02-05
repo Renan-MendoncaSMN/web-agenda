@@ -61,5 +61,25 @@
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>PrimeiroAcesso</servlet-name>
+        <servlet-class>controle.PrimeiroAcessoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PrimeiroAcesso</servlet-name>
+        <url-pattern>/primeiroAcesso</url-pattern>
+    </servlet-mapping>
+
+<!--
+    <filter>
+        <filter-name>filtros</filter-name>
+        <filter-class>Filtros.FiltroPaginas</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>filtros</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+-->
 
 </web-app>

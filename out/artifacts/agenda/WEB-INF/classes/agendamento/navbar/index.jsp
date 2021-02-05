@@ -1,4 +1,14 @@
+<%@ page import="entidades.Usuario" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+
+<style>
+    .usuario-logado {
+        position: absolute;
+        left: 1075px;
+        color: #ffffff;
+    }
+</style>
 
 <header class="cabecalho">
     <div class="logo">
@@ -6,22 +16,28 @@
             <img src="agendamento/img/logo.jpg" alt="Logo"/>
         </a>
     </div>
-    <button class="menu-toggle">
-        <i class="fa fa-lg fa-bars"></i>
-    </button>
     <nav class="menu">
         <ul>
             <li>
                 <a href="index.jsp">Início</a>
             </li>
             <li>
-                <a id="sadores" >Sabores</a>
+                <a href="#sabores" >Sabores</a>
             </li>
             <li>
                 <a href="#sobre">Sobre</a>
             </li>
             <li>
                 <a href="#contato">Contato</a>
+            </li>
+            <li>
+                <a href="<%=request.getContextPath()%>/login" methods="get">Sair</a>
+            </li>
+            <li class="usuario-logado">
+                <%
+                    Usuario usuario = (Usuario)session.getAttribute("usuario");
+                    out.print(usuario.getEmail());
+                %>
             </li>
         </ul>
     </nav>

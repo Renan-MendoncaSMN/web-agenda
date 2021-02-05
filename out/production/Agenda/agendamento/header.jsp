@@ -21,4 +21,5 @@
     <link rel="stylesheet" href="agendamento/navbar/style.css">
     <link rel="stylesheet" href="agendamento/footer/style.css">
     <link rel="stylesheet" href="agendamento/css/login.css">
+    <link rel="stylesheet" href="agendamento/css/primeiroAcesso.css">
 </head>

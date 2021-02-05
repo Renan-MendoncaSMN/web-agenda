@@ -12,7 +12,7 @@
         <p>Senha</p>
         <input type="password" name="senha">
         <input type="submit" name="" value="Login">
-        <a href="#">Primeiro acesso?</a>
+        <a href="primeiroAcesso.jsp">Primeiro acesso?</a>
     </form>
 </div>
 </body>

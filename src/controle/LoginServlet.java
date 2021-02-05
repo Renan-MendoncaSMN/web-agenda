@@ -22,25 +22,36 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
                 String email = request.getParameter("email");
                 String senha = request.getParameter("senha");
+
                 Usuario usuario = new Usuario();
                 usuario.setEmail(email);
                 usuario.setSenha(senha);
 
-        try {
-            if(_repositorioUsuario.login(usuario)){
+
+            if(_repositorioUsuario.login(usuario) == true){
+
                 HttpSession session = request.getSession();
-                session.setAttribute("email", email);
-                response.sendRedirect("index.jsp");
+                session.setAttribute("usuario", usuario);
+
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }else {
-                HttpSession session = request.getSession();
-                session.setAttribute("email", email);
                 response.sendRedirect("login.jsp");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
 
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+        response.sendRedirect("login.jsp");
     }
 }
