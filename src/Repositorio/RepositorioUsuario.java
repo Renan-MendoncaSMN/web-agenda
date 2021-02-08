@@ -1,5 +1,6 @@
 package Repositorio;
 
+import Util.Log;
 import db.Conexao;
 import entidades.Usuario;
 
@@ -44,7 +45,7 @@ public class RepositorioUsuario {
             return true;
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            Log.write(e.toString());
             return false;
         }
     }

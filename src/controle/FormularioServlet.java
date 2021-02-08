@@ -1,5 +1,6 @@
 package controle;
 
+import Util.Log;
 import entidades.Agendamento;
 import Repositorio.RepositorioAgendamento;
 
@@ -46,8 +47,7 @@ public class FormularioServlet extends HttpServlet {
             _agendamentoRepository.cadastrarAgendamento(agendamento);
             response.setStatus(HttpServletResponse.SC_OK);
         } catch (Exception e) {
-            // gravar log
-            // e.getMessage();
+            Log.write(e.toString());
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
         }
     }

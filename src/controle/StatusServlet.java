@@ -1,6 +1,7 @@
 package controle;
 
 import Repositorio.RepositorioAgendamento;
+import Util.Log;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,10 +33,8 @@ public class StatusServlet extends HttpServlet {
 
         try {
             _agendamentoRepository.atualizarStatusAgendamento(Integer.parseInt(idAgendamento), Byte.parseByte(idStatus));
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            Log.write(e.toString());
         }
         response.setStatus(HttpServletResponse.SC_OK);
     }

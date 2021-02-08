@@ -1,6 +1,7 @@
 package controle;
 
 import Repositorio.RepositorioUsuario;
+import Util.Log;
 import entidades.Usuario;
 
 import javax.servlet.ServletException;
@@ -38,6 +39,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("login.jsp");
             }
         } catch (SQLException throwables) {
+            Log.write(throwables.toString());
             response.sendRedirect("login.jsp");
         }
 

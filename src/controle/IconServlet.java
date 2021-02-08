@@ -1,6 +1,7 @@
 package controle;
 
 import Repositorio.RepositorioAgendamento;
+import Util.Log;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,9 +25,8 @@ public class IconServlet extends HttpServlet {
         try {
             quantidadeAgendamentos = _agendamentoRepository.buscarQuantidadeAgendamentosPendentes(147);
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            Log.write(throwables.toString());
         }
-
         request.setAttribute("quantidadeAgendamentos", quantidadeAgendamentos);
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }

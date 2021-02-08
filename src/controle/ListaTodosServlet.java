@@ -1,5 +1,6 @@
 package controle;
 
+import Util.Log;
 import entidades.Agendamento;
 import Repositorio.RepositorioAgendamento;
 
@@ -29,12 +30,8 @@ public class ListaTodosServlet extends HttpServlet {
         List<Agendamento> agendamentos = null;
         try {
             agendamentos = _agendamentoRepository.buscarAgendamentos(147);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            Log.write(e.toString());
         }
 
         request.setAttribute("agendamentos", agendamentos);

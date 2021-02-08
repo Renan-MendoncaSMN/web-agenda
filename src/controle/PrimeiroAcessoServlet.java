@@ -1,6 +1,7 @@
 package controle;
 
 import Repositorio.RepositorioUsuario;
+import Util.Log;
 import entidades.Usuario;
 
 import javax.servlet.ServletException;
@@ -37,6 +38,7 @@ public class PrimeiroAcessoServlet extends HttpServlet {
                 response.sendRedirect("login.jsp");
             }
         } catch (SQLException throwables) {
+            Log.write(throwables.toString());
             response.sendRedirect("primeiroAcesso.jsp");
         }
     }
