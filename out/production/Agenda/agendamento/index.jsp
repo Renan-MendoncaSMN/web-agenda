@@ -34,6 +34,12 @@
 
 </style>
 <body>
+<%
+    String usuario = (String) session.getAttribute("email");
+    if(usuario == null){
+        response.sendRedirect("login.jsp");
+    }
+%>
 <div>
     <jsp:include page="navbar/index.jsp" />
 </div>

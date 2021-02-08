@@ -30,18 +30,15 @@ public class LoginServlet extends HttpServlet {
                 usuario.setEmail(email);
                 usuario.setSenha(senha);
 
-
-            if(_repositorioUsuario.login(usuario) == true){
-
-                HttpSession session = request.getSession();
-                session.setAttribute("usuario", usuario);
-
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+            if(_repositorioUsuario.login(usuario)){
+                    HttpSession session = request.getSession();
+                    session.setAttribute("email", email);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
             }else {
                 response.sendRedirect("login.jsp");
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            response.sendRedirect("login.jsp");
         }
 
     }

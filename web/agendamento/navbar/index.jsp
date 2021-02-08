@@ -1,5 +1,7 @@
 <%@ page import="entidades.Usuario" %>
+<%@ page import="Filtros.FiltroPaginas" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 
 
 <style>
@@ -9,7 +11,6 @@
         color: #ffffff;
     }
 </style>
-
 <header class="cabecalho">
     <div class="logo">
         <a href="#inicio">
@@ -34,10 +35,6 @@
                 <a href="<%=request.getContextPath()%>/login" methods="get">Sair</a>
             </li>
             <li class="usuario-logado">
-                <%
-                    Usuario usuario = (Usuario)session.getAttribute("usuario");
-                    out.print(usuario.getEmail());
-                %>
             </li>
         </ul>
     </nav>

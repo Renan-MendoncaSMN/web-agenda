@@ -37,7 +37,7 @@ public class PrimeiroAcessoServlet extends HttpServlet {
                 response.sendRedirect("login.jsp");
             }
         } catch (SQLException throwables) {
-            throwables.printStackTrace();
+            response.sendRedirect("primeiroAcesso.jsp");
         }
     }
 }
