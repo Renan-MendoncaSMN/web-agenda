@@ -23,6 +23,9 @@
             <li>
                 <a href="#contato">Contato</a>
             </li>
+            <li>
+                <a href="<%=request.getContextPath()%>/login" methods="get">Sair</a>
+            </li>
         </ul>
     </nav>
 </header>

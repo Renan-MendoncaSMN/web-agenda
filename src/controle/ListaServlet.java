@@ -27,7 +27,7 @@ public class ListaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Agendamento> agendamentosPendentes = null;
         try {
-            agendamentosPendentes = _agendamentoRepository.buscarAgendamentosPendentes(147);
+            agendamentosPendentes = _agendamentoRepository.buscarAgendamentosPendentes(Integer.valueOf(request.getSession().getAttribute("id").toString()));
         } catch (Exception e) {
             Log.write(e.toString());
         }

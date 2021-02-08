@@ -22,7 +22,7 @@ public class FiltroPaginas implements Filter {
         String url = httpServletRequest.getRequestURI();
         HttpSession session = httpServletRequest.getSession();
 
-        if(session.getAttribute("usuario") != null || url.lastIndexOf("login.jsp")>-1 || url.lastIndexOf("LoginServlet")>-1){
+        if(session.getAttribute("usuarioAutenticado") != null || url.lastIndexOf("login.jsp")>-1 || url.lastIndexOf("LoginServlet")>-1){
                 chain.doFilter(request, response);
         }else {
             ((HttpServletResponse)response).sendRedirect("login.jsp");

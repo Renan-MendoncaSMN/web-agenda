@@ -1,4 +1,4 @@
-.modal-sabores {
+.modal-sobre {
     width: 1000px;
     height: 500px;
     border: rgba(134, 93, 93, 0);
@@ -13,7 +13,7 @@
     padding: 68px 28px;
 }
 
-.modal-sabores h1 {
+.modal-sobre h1 {
     margin: 0;
     padding-top: 10px;
     padding-left: 0;
@@ -24,48 +24,20 @@
     font-size: 25px;
 }
 
-.modal-sabores h1:hover {
-    color:goldenrod;
+.modal-sobre h1:hover {
+    color: goldenrod;
     transition: 0.2s;
 }
 
-.table-sabores {
-    font-family: 'Oswald', sans-serif;
-    margin: 0;
-    padding-top: 20px;
-    padding-left: 0;
-    padding-bottom: 20px;
-    width: 100%;
-    left: 50%;
-    color: #fff;
-
-}
-
-.table-sabores:hover {
-    color:goldenrod;
+.modal-sobre p:hover{
+    color: goldenrod;
     transition: 0.2s;
 }
 
-.table-sabores th {
-    text-align: center;
-    font-size: 25px;
-    letter-spacing: 5px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    font-weight: bold;
-
-}
-
-.table-sabores td {
-    padding: 8px;
-    text-align: center;
-}
-
-.logo-sabores {
+.logo-sobre {
     border-radius: 50%;
     position: absolute;
     top: 0px;
     left: 112px;
     background-size: cover;
 }
-

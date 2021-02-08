@@ -91,9 +91,11 @@
 <script>
 
     var urlAgendamento = '${pageContext.request.contextPath}/agendamentoListAll';
+    var idUsuario = document.getElementsByName("")
 
     function reloadList() {
         $.get(urlAgendamento, {
+            id:
         }).done(function (data){
            $('#corpo-tabela').html($(data).find('#corpo-tabela').html());
         }).fail(function (){

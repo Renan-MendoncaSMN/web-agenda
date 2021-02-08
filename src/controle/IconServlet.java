@@ -23,7 +23,7 @@ public class IconServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int quantidadeAgendamentos = 0;
         try {
-            quantidadeAgendamentos = _agendamentoRepository.buscarQuantidadeAgendamentosPendentes(147);
+        quantidadeAgendamentos = _agendamentoRepository.buscarQuantidadeAgendamentosPendentes(Integer.valueOf(request.getSession().getAttribute("id").toString()));
         } catch (SQLException throwables) {
             Log.write(throwables.toString());
         }

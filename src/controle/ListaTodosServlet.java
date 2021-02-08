@@ -3,11 +3,13 @@ package controle;
 import Util.Log;
 import entidades.Agendamento;
 import Repositorio.RepositorioAgendamento;
+import entidades.Usuario;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -24,12 +26,9 @@ public class ListaTodosServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        String id = request.getParameter("IdUsuario");
-
         List<Agendamento> agendamentos = null;
         try {
-            agendamentos = _agendamentoRepository.buscarAgendamentos(147);
+            agendamentos = _agendamentoRepository.buscarAgendamentos(Integer.valueOf(request.getSession().getAttribute("id").toString()));
         } catch (Exception e) {
             Log.write(e.toString());
         }

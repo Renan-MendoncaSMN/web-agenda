@@ -31,9 +31,12 @@ public class LoginServlet extends HttpServlet {
                 usuario.setEmail(email);
                 usuario.setSenha(senha);
 
-            if(_repositorioUsuario.login(usuario)){
+                Usuario usuarioAutenticado = _repositorioUsuario.login(usuario);
+
+            if(usuarioAutenticado != null){
                     HttpSession session = request.getSession();
                     session.setAttribute("email", email);
+                    session.setAttribute("id", usuarioAutenticado.getId());
                     request.getRequestDispatcher("index.jsp").forward(request, response);
             }else {
                 response.sendRedirect("login.jsp");

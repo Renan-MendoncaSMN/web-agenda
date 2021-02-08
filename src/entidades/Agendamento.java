@@ -14,16 +14,17 @@ public class Agendamento {
     private Date dataAlteracao;
     private Boolean emailNotificacao;
     private String urlRedirecionamento;
-    private Integer idUsuario = 147;
+    private Integer idUsuario;
     private byte idStatus;
 
 
-    public Agendamento(String assunto, String descricao, Date dataAgendamento, Boolean emailNotificacao2,
+    public Agendamento(String assunto, String descricao, Date dataAgendamento, Boolean emailNotificacao, Integer idUsuario,
                        String urlRedirecionamento) {
         this.assunto = assunto;
         this.descricao = descricao;
         this.dataAgendamento = dataAgendamento;
-        this.emailNotificacao = emailNotificacao2;
+        this.emailNotificacao = emailNotificacao;
+        this.idUsuario = idUsuario;
         this.urlRedirecionamento = urlRedirecionamento;
     }
 

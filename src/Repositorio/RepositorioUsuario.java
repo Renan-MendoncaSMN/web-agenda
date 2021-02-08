@@ -18,18 +18,24 @@ public class RepositorioUsuario {
         super();
     }
 
-    public boolean login(Usuario usuario) throws SQLException {
-        boolean status = false;
+    public Usuario login(Usuario usuario) throws SQLException {
+        Usuario user = null;
         con = conexao.getConnection();
 
         PreparedStatement preparedStatement = con.prepareStatement("SELECT * FROM Usuario where email = ? and senha = ?");
         preparedStatement.setString(1, usuario.getEmail());
         preparedStatement.setString(2, usuario.getSenha());
 
-        System.out.println(preparedStatement);
+
         rs = preparedStatement.executeQuery();
-        status = rs.next();
-        return status;
+
+        if(rs.next()){
+            user = new Usuario();
+            user.setEmail(rs.getString("email"));
+            user.setSenha(rs.getString("senha"));
+            user.setId(rs.getInt("IdUsuario"));
+        }
+       return user;
     }
 
     public boolean insertUser(Usuario usuario) throws SQLException {
